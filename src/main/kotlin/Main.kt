@@ -1,4 +1,8 @@
 class Person(val name: String, var age: Int) {
+    companion object {
+        const val LEGAL_AGE = 18
+    }
+
     fun displayDetails() {
         println("Name: $name, Age: $age")
     }
@@ -9,8 +13,7 @@ class Person(val name: String, var age: Int) {
     }
 
     fun isAdult(): Boolean {
-        print("Checking if the person is an adult... ")
-        return age >= 18
+        return age >= LEGAL_AGE
     }
 }
 
