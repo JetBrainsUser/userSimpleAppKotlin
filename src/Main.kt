@@ -1,4 +1,6 @@
-class Person(val name: String, var age: Int) {
+data class BankAccount(val bankName: String, val number: String)
+
+class Person(val name: String, var age: Int, val telephoneNumber: String, val bankAccount: BankAccount) {
     companion object {
         const val LEGAL_AGE = 18
         const val BIRTHDAY_ANNOUNCEMENT_FORMAT = "Happy Birthday %s! You are now %d years old."
@@ -8,7 +10,7 @@ class Person(val name: String, var age: Int) {
     }
 
     fun displayDetails() {
-        println("Name: $name, Age: $age")
+        println("Name: $name, Age: $age, Telephone Number: $telephoneNumber, Bank Account: ${bankAccount.bankName} ${bankAccount.number}")
     }
 
     fun celebrateBirthday() {
@@ -27,7 +29,8 @@ class Person(val name: String, var age: Int) {
 }
 
 fun main() {
-    val person = Person("John Doe", 25)
+    val bankAccount = BankAccount("Bank Name", "Account Number")
+    val person = Person("John Doe", 25, "123-456-7890", bankAccount)
     person.displayDetails()
     person.celebrateBirthday()
     person.displayAdultStatus()
